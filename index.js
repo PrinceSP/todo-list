@@ -34,5 +34,8 @@ function add(e){
 function complete(e,text){
   if (e.checked==true) {
     text.style.textDecoration = 'line-through'
+    e.value = 'checked'
+  } else{
+    text.style.textDecoration = 'none'
   }
 }
