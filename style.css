@@ -12,7 +12,7 @@ body{
 .outer-container{
   width: 100%;
   min-height:100vh;
-  padding-top:100px;
+  padding-top:120px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -79,12 +79,14 @@ form>button{
   border:none;
   box-shadow: none;
   position: absolute;
-  top: -14px;
-  right: 2px;
+  top: -8px;
+  right: 4.5px;
+  background: #000;
+  padding:3px 6px;
 }
 
 i{
-  color: #1b3;
+  color: #1e3;
   font-size: 1.075rem;
 }
 
@@ -107,11 +109,15 @@ input{
   opacity: 0.5;
 }
 
+input[placeholder]{
+  font-size: 0.875rem;
+}
+
 li {
   display: flex;
   align-items: center;
   font-size: 0.937rem;
-  color: #888;
+  color: #444;
 }
 
 li>input{
