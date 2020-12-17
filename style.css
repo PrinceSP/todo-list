@@ -116,7 +116,7 @@ input[placeholder]{
 li {
   display: flex;
   align-items: center;
-  font-size: 0.937rem;
+  font-size: 1.25rem;
   color: #444;
 }
 
@@ -151,6 +151,10 @@ footer>p{
     transition: width 800ms ease-in-out;
   }
 
+  form>button{
+    top:-7px;
+  }
+
   li{
     font-size: 1rem;
     padding: 0 25px;
@@ -175,6 +179,10 @@ footer>p{
 
   button{
     margin-top:20px;
+  }
+
+  form>button{
+    top:-12px;
   }
 
   footer>p{
