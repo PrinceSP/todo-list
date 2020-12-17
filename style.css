@@ -6,48 +6,40 @@
 
 body{
   font-family: 'Poppins',sans-serif;
+  overflow-y: scroll;
 }
 
 .outer-container{
   width: 100%;
   min-height:100vh;
+  padding-top:80px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -150px;
-}
-
-footer{
-  position: absolute;
-  bottom:14px;
-}
-
-footer>p{
-  width: 100%;
-  font-size:0.875rem;
-  opacity: 0.4;
 }
 
 p{
   width: 85%;
-  margin-top:15px;
+  margin-top:14px;
   letter-spacing: 0.03rem;
   line-height: 20px;
   text-align: center;
-  color: #3f325e;
+  color: #6f728e;
   font-size:0.937rem;
 }
 
 h1{
-  font-size: 1.725rem;
+  font-size: 1.625rem;
   color: #29296e;
+  transition:font-size 200ms ease-in;
 }
 
 span{
@@ -76,6 +68,7 @@ button{
   border-radius: 4px;
   box-shadow: 0 10px 35px #dadada;
   padding: 20px 0 0;
+  margin-bottom: 140px;
 }
 
 form{
@@ -128,4 +121,58 @@ li>input{
   background: red;
   margin: 10px 13px 10px -15px;
   cursor: pointer;
+}
+
+footer{
+  position: absolute;
+  bottom:14px;
+}
+
+footer>p{
+  width: 100%;
+  font-size:0.875rem;
+  opacity: 0.4;
+}
+
+
+/* screen 615px */
+@media screen and (min-width: 38.4em) {
+  h1{
+    font-size: 2rem;
+  }
+
+  .container{
+    width: 500px;
+    transition: width 800ms ease-in-out;
+  }
+
+  li{
+    font-size: 1rem;
+    padding: 0 25px;
+  }
+
+  input[placeholder]{
+    font-size: 1rem;
+  }
+}
+
+/* screen 758px */
+@media screen and (min-width:48em) {
+  h1{
+    font-size: 2.375rem;
+    letter-spacing: 0.125rem;
+    margin-bottom: 4px;
+  }
+
+  p{
+    font-size: 0.875rem;
+  }
+
+  button{
+    margin-top:20px;
+  }
+
+  footer>p{
+    font-size: 1rem;
+  }
 }
