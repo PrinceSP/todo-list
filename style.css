@@ -12,11 +12,10 @@ body{
 .outer-container{
   width: 100%;
   min-height:100vh;
-  padding-top:80px;
+  padding-top:100px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
   position: relative;
 }
 
