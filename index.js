@@ -28,7 +28,6 @@ function add(e){
   box.addEventListener('change',function(){
     complete(this,lists)
   })
-
 }
 
 function complete(e,text){
@@ -37,5 +36,6 @@ function complete(e,text){
     e.value = 'checked'
   } else{
     text.style.textDecoration = 'none'
+    e.value = 'unchecked'
   }
 }
