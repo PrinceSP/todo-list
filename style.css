@@ -21,7 +21,7 @@ header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -100px;
+  margin-top: -150px;
 }
 
 footer{
@@ -63,33 +63,69 @@ button{
   border-radius: 4px;
   background: none;
   box-shadow: 0 0 10px #dcdcdc;
+  cursor: pointer;
 }
 
 .container{
   width: 400px;
-  min-height: 37vh;
+  min-height: 80px;
   display: flex;
   flex-direction:column;
   align-items: center;
   border: none;
   border-radius: 4px;
   box-shadow: 0 10px 35px #dadada;
-  padding: 20px 10px 0;
+  padding: 20px 0 0;
+}
+
+form{
+  position: relative;
+}
+
+form>button{
+  background:none;
+  border:none;
+  box-shadow: none;
+  position: absolute;
+  top: -14px;
+  right: 2px;
+}
+
+i{
+  color: #1b3;
+  font-size: 1.075rem;
 }
 
 ul,form{
-  width:80%;
+  width:90%;
 }
 
-input,li{
+input,
+li{
   border: 1px solid #aaa;
   border-radius: 2px;
   padding: 10px 25px;
   list-style:none;
   margin-bottom: 20px;
+  word-break: break-all;
 }
 
 input{
   width: 100%;
   opacity: 0.5;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  font-size: 0.937rem;
+  color: #888;
+}
+
+li>input{
+  width: 20px;
+  height:20px;
+  background: red;
+  margin: 10px 13px 10px -15px;
+  cursor: pointer;
 }
