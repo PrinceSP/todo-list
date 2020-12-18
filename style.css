@@ -127,6 +127,22 @@ li>input{
   cursor: pointer;
 }
 
+.deleteButton{
+  font-size: 0.75rem;
+  box-shadow: none;
+  border:none;
+  cursor: pointer;
+  opacity: .4;
+  font-style:italic;
+  height:0;
+  margin:0 0 20px;
+}
+
+.deleteButton:hover{
+  opacity:1;
+}
+
+
 footer{
   position: absolute;
   bottom:14px;
