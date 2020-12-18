@@ -116,13 +116,13 @@ li {
   display: flex;
   align-items: center;
   font-size: 1.25rem;
-  color: #444;
+  color: #777;
+  padding:4px 25px;
 }
 
 li>input{
   width: 20px;
   height:20px;
-  background: red;
   margin: 10px 13px 10px -15px;
   cursor: pointer;
 }
