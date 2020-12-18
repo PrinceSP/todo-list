@@ -22,9 +22,12 @@ function add(e){
 function complete(e,text){
   if (e.checked==true) {
     text.style.textDecoration = 'line-through'
+    text.style.background = '#eee'
     e.value = 'checked'
   } else{
     text.style.textDecoration = 'none'
+    text.style.background = 'none'
+
     e.value = 'unchecked'
   }
 }
