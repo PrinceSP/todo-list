@@ -2,9 +2,11 @@ const ul = document.querySelector('ul')
 const forms = document.querySelector('form')
 const btnAdd =  document.querySelector('.adds')
 const inputs = document.querySelector('.inputs')
+const delBtn = document.querySelector('.deleteButton')
 
 forms.addEventListener('submit',add)
 document.addEventListener('DOMContentLoaded',getItemsLocal)
+delBtn.addEventListener('click',deleteItems)
 
 function add(e){
   e.preventDefault()
@@ -23,12 +25,11 @@ function complete(e,text){
   if (e.checked==true) {
     text.style.textDecoration = 'line-through'
     text.style.background = '#eee'
-    e.value = 'checked'
+    text.className = 'checked'
   } else{
     text.style.textDecoration = 'none'
     text.style.background = 'none'
-
-    e.value = 'unchecked'
+    text.className = 'unchecked'
   }
 }
 
@@ -40,7 +41,6 @@ function saveItems(item){
   }else{
     items = JSON.parse(localStorage.getItem('todos'))
   }
-
   items.push(item)
   localStorage.setItem('todos',JSON.stringify(items))
 }
@@ -56,7 +56,7 @@ function getItemsLocal(){
     items = JSON.parse(localStorage.getItem('todos'))
   }
 
-  items.map(item=>{
+  items.forEach(item=>{
     addLocalItems(item)
   })
 }
@@ -80,4 +80,21 @@ function addLocalItems(items,values){
   box.addEventListener('change',function(){
     complete(this,lists)
   })
+}
+
+function deleteItems(){
+  const lists = document.querySelectorAll('li')
+  lists.forEach(item=>{
+    if (item.classList.contains('checked')) {
+      confirmDeletion(item)
+    }
+  })
+}
+
+function confirmDeletion(item){
+  let conf = confirm('are u sure want to delete these items?')
+  if (conf===true) {
+    item.remove();
+    localStorage.removeItem('todos')
+  }
 }
