@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded',getItemsLocal)
 
 function add(e){
   e.preventDefault()
-
   if (inputs.value == '') {
     alert('input box must not be empty!')
     return false;
@@ -18,7 +17,6 @@ function add(e){
   saveItems(inputs.value)
 
   inputs.value = ''
-
 }
 
 function complete(e,text){
@@ -45,6 +43,8 @@ function saveItems(item){
 }
 
 function getItemsLocal(){
+  inputs.value = ''
+
   let items;
 
   if (localStorage.getItem('todos')===null) {
@@ -65,17 +65,10 @@ function addLocalItems(items,values){
   box.type = "checkbox"
   box.className = 'done'
 
-
   if (items!==null || items!== undefined || items!==0) {
     lists.appendChild(box)
     lists.append(items)
-  }
-  else if(items===null){
-    lists.appendChild(box)
-    lists.append(items)
-  }
-  else {
-    lists.appendChild(box)
+  } else {
     lists.append(values)
   }
 
