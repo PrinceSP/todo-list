@@ -4,30 +4,21 @@ const btnAdd =  document.querySelector('.adds')
 const inputs = document.querySelector('.inputs')
 
 forms.addEventListener('submit',add)
+document.addEventListener('DOMContentLoaded',getItemsLocal)
 
 function add(e){
   e.preventDefault()
-  const lists = document.createElement('li')
-  const box = document.createElement('input')
-
-  box.type = "checkbox"
-  box.className = 'done'
 
   if (inputs.value == '') {
     alert('input box must not be empty!')
     return false;
   }
 
-  lists.appendChild(box)
-  lists.append(inputs.value)
-
-  ul.appendChild(lists)
+  addLocalItems(inputs.value)
+  saveItems(inputs.value)
 
   inputs.value = ''
 
-  box.addEventListener('change',function(){
-    complete(this,lists)
-  })
 }
 
 function complete(e,text){
@@ -38,4 +29,59 @@ function complete(e,text){
     text.style.textDecoration = 'none'
     e.value = 'unchecked'
   }
+}
+
+function saveItems(item){
+  let items;
+
+  if (localStorage.getItem('todos')===null) {
+    items = []
+  }else{
+    items = JSON.parse(localStorage.getItem('todos'))
+  }
+
+  items.push(item)
+  localStorage.setItem('todos',JSON.stringify(items))
+}
+
+function getItemsLocal(){
+  let items;
+
+  if (localStorage.getItem('todos')===null) {
+    items = []
+  }else{
+    items = JSON.parse(localStorage.getItem('todos'))
+  }
+
+  items.map(item=>{
+    addLocalItems(item)
+  })
+}
+
+function addLocalItems(items,values){
+  const lists = document.createElement('li')
+  const box = document.createElement('input')
+
+  box.type = "checkbox"
+  box.className = 'done'
+
+
+  if (items!==null || items!== undefined || items!==0) {
+    lists.appendChild(box)
+    lists.append(items)
+  }
+  else if(items===null){
+    lists.appendChild(box)
+    lists.append(items)
+  }
+  else {
+    lists.appendChild(box)
+    lists.append(values)
+  }
+
+  ul.appendChild(lists)
+
+  box.addEventListener('change',function(){
+    complete(this,lists)
+  })
 }
