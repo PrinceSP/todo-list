@@ -96,6 +96,7 @@ ul,form{
 
 input,
 li{
+  width: 100%;
   border: 1px solid #aaa;
   border-radius: 2px;
   padding: 10px 25px;
@@ -104,13 +105,11 @@ li{
   word-break: break-all;
 }
 
-input{
-  width: 100%;
-  opacity: 0.5;
-}
-
 input[placeholder]{
   font-size: 0.875rem;
+  opacity: 0.5;
+  padding-right:40px;
+  padding-left: 14px;
 }
 
 li {
