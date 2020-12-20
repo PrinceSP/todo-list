@@ -87,15 +87,25 @@ li>button{
 
 li>button{
   top:-3px;
+  background:#d11a2a;
+}
+
+.editButton{
+  right: 35px;
+  background: #e392a3;
+}
+
+.editButton i{
+  color: #fff;
 }
 
 i{
-  color: #34ff3a;
+  color: #a4ff23;
   font-size: 1.075rem;
 }
 
 li button i{
-  color:#f5f500;
+  color:#f4f4f4;
 }
 
 ul,form{
