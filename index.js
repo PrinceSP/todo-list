@@ -2,11 +2,9 @@ const ul = document.querySelector('ul')
 const forms = document.querySelector('form')
 const btnAdd =  document.querySelector('.adds')
 const inputs = document.querySelector('.inputs')
-const delBtn = document.querySelector('.deleteButton')
 
 forms.addEventListener('submit',add)
 document.addEventListener('DOMContentLoaded',getItemsLocal)
-delBtn.addEventListener('click',deleteItems)
 
 function add(e){
   e.preventDefault()
@@ -64,22 +62,26 @@ function getItemsLocal(){
 function addLocalItems(items,values){
   const lists = document.createElement('li')
   const box = document.createElement('input')
+  const del = document.createElement('button')
+  const i = document.createElement('i')
 
   box.type = "checkbox"
   box.className = 'done'
+  i.className = "fa fa-trash"
+  // del.type = "button"
 
-  if (items!==null || items!== undefined || items!==0) {
-    lists.appendChild(box)
-    lists.append(items)
-  } else {
-    lists.append(values)
-  }
+  del.appendChild(i)
+  lists.appendChild(box)
+  lists.append(items)
+  lists.appendChild(del)
 
   ul.appendChild(lists)
 
   box.addEventListener('change',function(){
     complete(this,lists)
   })
+
+  del.addEventListener('click',deleteItems)
 }
 
 function deleteItems(){
@@ -95,6 +97,24 @@ function confirmDeletion(item){
   let conf = confirm('are u sure want to delete these items?')
   if (conf===true) {
     item.remove();
-    localStorage.removeItem('todos')
+    deleteFromLocal(item)
+  }
+}
+
+function deleteFromLocal(item){
+  let items;
+
+  if (localStorage.getItem('todos')===null) {
+    items = []
+  }else{
+    items = JSON.parse(localStorage.getItem('todos'))
+  }
+
+  const indexes = items.findIndex(i=>i===item.textContent)
+  const delecion = items[indexes]
+
+  if (delecion===item.textContent) {
+    items.splice(indexes,1)
+    localStorage.setItem('todos',JSON.stringify(items))
   }
 }
