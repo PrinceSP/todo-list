@@ -70,12 +70,12 @@ button{
   margin-bottom: 140px;
 }
 
-form{
+form,li{
   position: relative;
 }
 
-form>button{
-  background:none;
+form>button,
+li>button{
   border:none;
   box-shadow: none;
   position: absolute;
@@ -85,9 +85,17 @@ form>button{
   padding:3px 6px;
 }
 
+li>button{
+  top:-3px;
+}
+
 i{
   color: #34ff3a;
   font-size: 1.075rem;
+}
+
+li button i{
+  color:#f5f500;
 }
 
 ul,form{
@@ -127,22 +135,6 @@ li>input{
   cursor: pointer;
 }
 
-.deleteButton{
-  font-size: 0.75rem;
-  box-shadow: none;
-  border:none;
-  cursor: pointer;
-  opacity: .4;
-  font-style:italic;
-  height:0;
-  margin:0 0 20px;
-}
-
-.deleteButton:hover{
-  opacity:1;
-}
-
-
 footer{
   position: absolute;
   bottom:14px;
@@ -166,7 +158,8 @@ footer>p{
     transition: width 800ms ease-in-out;
   }
 
-  form>button{
+  form>button,
+  li>button{
     top:-7px;
   }
 
@@ -196,7 +189,8 @@ footer>p{
     margin-top:20px;
   }
 
-  form>button{
+  form>button,
+  li>button{
     top:-12px;
   }
 
