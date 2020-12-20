@@ -62,18 +62,25 @@ function getItemsLocal(){
 function addLocalItems(items,values){
   const lists = document.createElement('li')
   const box = document.createElement('input')
-  const del = document.createElement('button')
-  const i = document.createElement('i')
+  const [del,edit] = [document.createElement('button'),document.createElement('button')]
+  const i = [document.createElement('i'),document.createElement('i')]
 
   box.type = "checkbox"
-  box.className = 'done'
-  i.className = "fa fa-trash"
-  // del.type = "button"
+  del.type = "button"
+  edit.type = "button"
 
-  del.appendChild(i)
+  box.className = 'done'
+  edit.className = 'editButton'
+
+  i[0].className = "fa fa-trash"
+  i[1].className = "fa fa-edit"
+
+  del.appendChild(i[0])
+  edit.appendChild(i[1])
   lists.appendChild(box)
   lists.append(items)
   lists.appendChild(del)
+  lists.appendChild(edit)
 
   ul.appendChild(lists)
 
