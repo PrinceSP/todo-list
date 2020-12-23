@@ -70,15 +70,16 @@ function addLocalItems(items){
   del.type = "button"
   edit.type = "button"
   newInputs.type = "text"
+  newInputs.disabled = true;
+
 
   box.className = 'done'
-  newInputs.className = 'newInputs'
+  newInputs.classList.add('newInputs')
   edit.className = 'editButton'
   i[0].className = "fa fa-trash"
   i[1].className = "fa fa-edit"
 
   newInputs.value = items
-  newInputs.disabled = true;
 
   del.appendChild(i[0])
   edit.appendChild(i[1])
@@ -91,6 +92,10 @@ function addLocalItems(items){
 
   box.addEventListener('change',function(){
     complete(this,lists)
+  })
+
+  edit.addEventListener('click',()=>{
+    editTODOS(newInputs)
   })
 
   del.addEventListener('click',deleteItems)
@@ -129,4 +134,10 @@ function deleteFromLocal(item){
     items.splice(indexes,1)
     localStorage.setItem('todos',JSON.stringify(items))
   }
+}
+
+function editTODOS(todos){
+  todos.disabled = !todos.disabled
+  todos.style.border = '1px solid'
+  todos.style.padding = '12px'
 }
