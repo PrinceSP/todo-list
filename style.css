@@ -130,6 +130,17 @@ li>button{
   transition: transform 250ms ease-in-out;
 }
 
+.newInputs{
+  margin-left: 0px;
+  width: 78%;
+  padding: 0;
+  font-size: 1.25rem;
+  color: #777;
+  border:none;
+  background: none;
+  cursor: default;
+}
+
 i{
   color: #a4ff23;
   font-size: 1.075rem;
@@ -164,8 +175,6 @@ input[placeholder]{
 li {
   display: flex;
   align-items: center;
-  font-size: 1.25rem;
-  color: #777;
   padding:4px 25px;
 }
 
