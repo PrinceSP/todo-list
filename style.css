@@ -196,6 +196,12 @@ footer>p{
   cursor: default;
 }
 
+.toggles{
+  transform: scale(1.2);
+  box-shadow: 0px 0px 10px #00D1FF;
+  background: #fff;
+}
+
 
 /* screen 615px */
 @media screen and (min-width: 38.4em) {
