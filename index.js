@@ -22,12 +22,12 @@ function add(e){
 function complete(e,text){
   if (e.checked==true) {
     text.style.textDecoration = 'line-through'
-    text.style.background = '#eee'
-    text.className = 'checked'
+    text.parentNode.style.background = '#eee'
+    text.classList.add('checked')
   } else{
     text.style.textDecoration = 'none'
-    text.style.background = 'none'
-    text.className = 'unchecked'
+    text.parentNode.style.background = 'none'
+    text.classList.add('unchecked')
   }
 }
 
@@ -91,7 +91,7 @@ function addLocalItems(items){
   ul.appendChild(lists)
 
   box.addEventListener('change',function(){
-    complete(this,lists)
+    complete(this,lists.childNodes[1])
   })
 
   edit.addEventListener('click',()=>{
@@ -127,10 +127,10 @@ function deleteFromLocal(item){
     items = JSON.parse(localStorage.getItem('todos'))
   }
 
-  const indexes = items.findIndex(i=>i===item.textContent)
+  const indexes = items.findIndex(i=>i===item.childNodes[1].value)
   const delecion = items[indexes]
 
-  if (delecion===item.textContent) {
+  if (delecion===item.childNodes[1].value) {
     items.splice(indexes,1)
     localStorage.setItem('todos',JSON.stringify(items))
   }
@@ -138,6 +138,5 @@ function deleteFromLocal(item){
 
 function editTODOS(todos){
   todos.disabled = !todos.disabled
-  todos.style.border = '1px solid'
-  todos.style.padding = '12px'
+  todos.parentNode.classList.toggle('toggles')
 }
