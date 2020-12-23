@@ -99,6 +99,37 @@ li>button{
   color: #fff;
 }
 
+.menus{
+  position: relative;
+  width:100%;
+  display: flex;
+  justify-content:center;
+}
+
+.menus::before {
+  content:'';
+  position: absolute;
+  height:1px;
+  width: 100%;
+  background: #abcdea;
+  top:10px;
+}
+
+.menus > button{
+  border: none;
+  box-shadow: none;
+  padding:5px;
+  color: #aaa;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+
+.menus > button:hover{
+  color:#777;
+  transform:scale(1.15);
+  transition: transform 250ms ease-in-out;
+}
+
 i{
   color: #a4ff23;
   font-size: 1.075rem;
