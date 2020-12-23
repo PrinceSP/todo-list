@@ -90,57 +90,6 @@ li>button{
   background:#d11a2a;
 }
 
-.editButton{
-  right: 35px;
-  background: #e392a3;
-}
-
-.editButton i{
-  color: #fff;
-}
-
-.menus{
-  position: relative;
-  width:100%;
-  display: flex;
-  justify-content:center;
-}
-
-.menus::before {
-  content:'';
-  position: absolute;
-  height:1px;
-  width: 100%;
-  background: #abcdea;
-  top:10px;
-}
-
-.menus > button{
-  border: none;
-  box-shadow: none;
-  padding:5px;
-  color: #aaa;
-  font-size: 0.75rem;
-  margin-bottom: 5px;
-}
-
-.menus > button:hover{
-  color:#777;
-  transform:scale(1.15);
-  transition: transform 250ms ease-in-out;
-}
-
-.newInputs{
-  margin-left: 0px;
-  width: 78%;
-  padding: 0;
-  font-size: 1.25rem;
-  color: #777;
-  border:none;
-  background: none;
-  cursor: default;
-}
-
 i{
   color: #a4ff23;
   font-size: 1.075rem;
@@ -194,6 +143,57 @@ footer>p{
   width: 100%;
   font-size:0.875rem;
   opacity: 0.4;
+}
+
+.editButton{
+  right: 35px;
+  background: #e392a3;
+}
+
+.editButton i{
+  color: #fff;
+}
+
+.menus{
+  position: relative;
+  width:100%;
+  display: flex;
+  justify-content:center;
+}
+
+.menus::before {
+  content:'';
+  position: absolute;
+  height:1px;
+  width: 100%;
+  background: #abcdea;
+  top:10px;
+}
+
+.menus > button{
+  border: none;
+  box-shadow: none;
+  padding:5px;
+  color: #aaa;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+
+.menus > button:hover{
+  color:#777;
+  transform:scale(1.15);
+  transition: transform 250ms ease-in-out;
+}
+
+.newInputs{
+  margin-left: 0px;
+  width: 78%;
+  padding: 0;
+  font-size: 1.25rem;
+  color: #777;
+  border:none;
+  background: none;
+  cursor: default;
 }
 
 
