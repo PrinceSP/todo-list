@@ -23,11 +23,11 @@ function complete(e,text){
   if (e.checked==true) {
     text.style.textDecoration = 'line-through'
     text.parentNode.style.background = '#eee'
-    text.classList.add('checked')
+    text.parentNode.classList.add('checked')
   } else{
     text.style.textDecoration = 'none'
     text.parentNode.style.background = 'none'
-    text.classList.add('unchecked')
+    text.parentNode.classList.add('unchecked')
   }
 }
 
@@ -138,5 +138,18 @@ function deleteFromLocal(item){
 
 function editTODOS(todos){
   todos.disabled = !todos.disabled
+  updateItems(todos)
   todos.parentNode.classList.toggle('toggles')
+}
+
+function updateItems(item){
+  let items = JSON.parse(localStorage.getItem('todos'))
+
+  const indexes = items.findIndex(i=>i===item.value)
+
+  if (items[indexes] !== item.value) {
+    items.splice(indexes,1,item.value)
+    localStorage.setItem('todos',JSON.stringify(items))
+  }
+
 }
