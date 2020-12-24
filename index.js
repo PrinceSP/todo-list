@@ -144,12 +144,9 @@ function editTODOS(todos){
 
 function updateItems(item){
   let items = JSON.parse(localStorage.getItem('todos'))
-
   const indexes = items.findIndex(i=>i===item.value)
-
   if (items[indexes] !== item.value) {
     items.splice(indexes,1,item.value)
     localStorage.setItem('todos',JSON.stringify(items))
   }
-
 }

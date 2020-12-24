@@ -188,12 +188,13 @@ footer>p{
 .newInputs{
   margin-left: 0px;
   width: 78%;
+  margin-top:5px;
   padding: 0;
   font-size: 1.25rem;
-  color: #777;
+  outline:none;
   border:none;
   background: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .toggles{
