@@ -2,6 +2,7 @@ const ul = document.querySelector('ul')
 const forms = document.querySelector('form')
 const btnAdd =  document.querySelector('.adds')
 const inputs = document.querySelector('.inputs')
+const menus = document.querySelectorAll('.filters')
 
 forms.addEventListener('submit',add)
 document.addEventListener('DOMContentLoaded',getItemsLocal)
@@ -23,12 +24,14 @@ function complete(e,text){
   if (e.checked==true) {
     text.style.textDecoration = 'line-through'
     text.parentNode.style.background = '#eee'
-    text.parentNode.classList.add('checked')
+    text.parentNode.classList.add('completed')
+    text.parentNode.classList.remove('uncompleted')
   } else{
     text.style.textDecoration = 'none'
     text.parentNode.style.background = 'none'
-    text.parentNode.classList.add('unchecked')
+    text.parentNode.classList.remove('completed')
   }
+
 }
 
 function saveItems(item){
@@ -78,6 +81,7 @@ function addLocalItems(items){
   edit.className = 'editButton'
   i[0].className = "fa fa-trash"
   i[1].className = "fa fa-edit"
+  lists.classList.add('uncompleted')
 
   newInputs.value = items
 
@@ -104,7 +108,7 @@ function addLocalItems(items){
 function deleteItems(){
   const lists = document.querySelectorAll('li')
   lists.forEach(item=>{
-    if (item.classList.contains('checked')) {
+    if (item.classList.contains('completed')) {
       confirmDeletion(item)
     }
   })
@@ -150,3 +154,31 @@ function updateItems(item){
     localStorage.setItem('todos',JSON.stringify(items))
   }
 }
+
+(function filters(){
+  menus.forEach(item=>{
+    item.addEventListener('click',function(){
+      for (var i = 0; i < ul.children.length; i++) {
+        switch (item.textContent) {
+          case 'all':
+            ul.children[i].style.display = 'flex'
+            break;
+          case 'completed':
+            if (ul.children[i].classList.contains('completed')) {
+              ul.children[i].style.display = 'flex'
+            }else{
+              ul.children[i].style.display = 'none'
+            }
+            break;
+          case 'uncompleted':
+            if (ul.children[i].classList.contains('uncompleted')) {
+              ul.children[i].style.display = 'flex'
+            }else{
+              ul.children[i].style.display = 'none'
+            }
+            break;
+        }
+      }
+    })
+  })
+})()
