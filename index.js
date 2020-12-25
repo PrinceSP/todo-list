@@ -3,9 +3,18 @@ const forms = document.querySelector('form')
 const btnAdd =  document.querySelector('.adds')
 const inputs = document.querySelector('.inputs')
 const menus = document.querySelectorAll('.filters')
+const btnStart = document.querySelector('button[name="start"]')
 
+btnStart.addEventListener('click',startTodos)
 forms.addEventListener('submit',add)
 document.addEventListener('DOMContentLoaded',getItemsLocal)
+document.querySelector('.container').style.display = 'none'
+
+function startTodos(){
+  document.querySelector('.container').style.display = 'flex'
+  document.querySelector('.container').style.marginTop = '50px'
+  this.style.display = 'none'
+}
 
 function add(e){
   e.preventDefault()
@@ -151,7 +160,7 @@ function editTODOS(todos){
 function updateItems(item,idx){
   let items = JSON.parse(localStorage.getItem('todos'))
   const indexes = items.findIndex(i=>i===item.value)
-  
+
   if (items[indexes]!==item.value){
     items.splice(idx,1,item.value)
     localStorage.setItem('todos',JSON.stringify(items))
