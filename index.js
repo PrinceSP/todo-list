@@ -130,10 +130,8 @@ function deleteFromLocal(item){
   }else{
     items = JSON.parse(localStorage.getItem('todos'))
   }
-
   const indexes = items.findIndex(i=>i===item.childNodes[1].value)
   const delecion = items[indexes]
-
   if (delecion===item.childNodes[1].value) {
     items.splice(indexes,1)
     localStorage.setItem('todos',JSON.stringify(items))
@@ -142,15 +140,20 @@ function deleteFromLocal(item){
 
 function editTODOS(todos){
   todos.disabled = !todos.disabled
-  updateItems(todos)
+  for (var i = 0; i < ul.children.length; i++) {
+    if (ul.children[i].children[1].value === todos.value) {
+      updateItems(todos,i)
+    }
+  }
   todos.parentNode.classList.toggle('toggles')
 }
 
-function updateItems(item){
+function updateItems(item,idx){
   let items = JSON.parse(localStorage.getItem('todos'))
   const indexes = items.findIndex(i=>i===item.value)
-  if (items[indexes] !== item.value) {
-    items.splice(indexes,1,item.value)
+  
+  if (items[indexes]!==item.value){
+    items.splice(idx,1,item.value)
     localStorage.setItem('todos',JSON.stringify(items))
   }
 }
