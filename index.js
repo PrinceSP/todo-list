@@ -39,6 +39,7 @@ function complete(e,text){
     text.style.textDecoration = 'none'
     text.parentNode.style.background = 'none'
     text.parentNode.classList.remove('completed')
+    text.parentNode.classList.add('uncompleted')
   }
 
 }
@@ -60,11 +61,11 @@ function getItemsLocal(){
 
   let items;
 
-  if (localStorage.getItem('todos')===null) {
-    items = []
-  }else{
+  // if (localStorage.getItem('todos')===null) {
+    // items = []
+  // }else{
     items = JSON.parse(localStorage.getItem('todos'))
-  }
+  // }
 
   items.forEach(item=>{
     addLocalItems(item)
